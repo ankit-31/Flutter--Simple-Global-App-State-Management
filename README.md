@@ -1,7 +1,6 @@
-# globalorappstatemanager
+# App State Management
 
-A new Flutter project.
-
+Using Provider
 ## Getting Started
 
 This project is a starting point for a Flutter application.
