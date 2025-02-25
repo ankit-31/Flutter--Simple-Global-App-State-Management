@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:globalorappstatemanager/add_data_page.dart';
 import 'package:globalorappstatemanager/listmap_provider.dart';
+import 'package:globalorappstatemanager/themesettings.dart';
 import 'package:provider/provider.dart';
 
 class ListPage extends StatelessWidget{
@@ -11,6 +12,25 @@ class ListPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('List'),
+        actions: [
+          PopupMenuButton(itemBuilder: (context){
+            return[
+              PopupMenuItem(child: Row(
+                children: [
+                  Icon(Icons.settings),
+                  SizedBox(width: 11,),
+                  Text('Settings')
+
+                ],
+              ),onTap:
+              (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingPage()));
+              },)
+
+            ];
+
+          })
+        ],
       ),
       body: Consumer<ListMapProvider>(builder: (context,provider,__){
         var allData =provider.getData();

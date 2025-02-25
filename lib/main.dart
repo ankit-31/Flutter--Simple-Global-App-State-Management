@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:globalorappstatemanager/ThemeProvider.dart';
 import 'package:globalorappstatemanager/counter_provider.dart';
 import 'package:globalorappstatemanager/list_page.dart';
 import 'package:globalorappstatemanager/listmap_provider.dart';
@@ -9,6 +10,7 @@ void main() {
       providers:[
         ChangeNotifierProvider(create: (context)=>ListMapProvider(),),
         ChangeNotifierProvider(create: (context)=>CounterProvider(),),
+        ChangeNotifierProvider(create: (context)=>ThemeProvider(),)
 
       ],
       child:MyApp()));
@@ -22,6 +24,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      //themeMode: ThemeMode.dark,//if user use dark theme then theme will be dark and vice-versa
+      themeMode: context.watch<ThemeProvider>().getThemeValue()?ThemeMode.dark:ThemeMode.light,
+      //here we need to conitinosly watch for the values
+      darkTheme: ThemeData.dark(),
+
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
