@@ -1,6 +1,8 @@
 # App State Management
 
 Using Provider
+i have manage the theme (dark or light) and also list map is updated
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
